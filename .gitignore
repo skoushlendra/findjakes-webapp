@@ -1,5 +1,8 @@
 /node_modules
 npm-debug.log
 .DS_Store
+.jshintrc
+.sublime-project
+.tern-project
 /.settings
 /*.env
