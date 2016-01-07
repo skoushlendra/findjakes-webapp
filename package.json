@@ -1,7 +1,7 @@
 {
-  "name": "mean-mvc",
+  "name": "findjakes-webapp",
   "version": "1.0.0",
-  "description": "A sample Node.js app using Express 4",
+  "description": "FindJakes is an application and an app(android) to find the nearby public toilet in India and open for suggestions also",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -24,18 +24,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/skoushlendra/MEAN_MVC"
+    "url": "https://github.com/skoushlendra/findjakes-webapp"
   },
-  "homepage": "https://github.com/skoushlendra/MEAN_MVC",
+  "homepage": "https://github.com/skoushlendra/findjakes-webapp",
   "bugs": {
-    "url": "https://github.com/skoushlendra/MEAN_MVC/issues"
+    "url": "https://github.com/skoushlendra/findjakes-webapp/issues"
   },
   "keywords": [
     "node",
     "skoushlendra",
     "express",
-    "MEAN",
-    "MVC"
+    "findjakes",
+    "findjakes-webapp"
   ],
   "author": "skoushlendra <koushlendra@skoushlendra.in> (http://www.skoushlendra.in/)",
   "license": "MIT"
