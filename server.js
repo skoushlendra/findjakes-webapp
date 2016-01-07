@@ -10,7 +10,7 @@ var db = mongoose(),
 	app = express(),
 	passport = passport();
 
-app.listen((process.env.PORT || 5000));
+app.listen((process.env.PORT || 5001));
 //app.listen(config.port);
 console.log("process.env.PORT: "+process.env.PORT);
 
