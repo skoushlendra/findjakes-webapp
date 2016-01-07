@@ -1,0 +1,42 @@
+{
+  "name": "mean-mvc",
+  "version": "1.0.0",
+  "description": "A sample Node.js app using Express 4",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "1.14.1",
+    "connect-flash": "0.1.1",
+    "ejs": "2.0.6",
+    "express": "4.10.7",
+    "express-session": "1.12.1",
+    "mongoose": "4.3.3",
+    "passport": "0.2.2",
+    "passport-facebook": "1.0.3",
+    "passport-local": "1.0.0",
+    "passport-twitter": "1.0.3"
+  },
+  "engines": {
+    "node": "4.2.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skoushlendra/MEAN_MVC"
+  },
+  "homepage": "https://github.com/skoushlendra/MEAN_MVC",
+  "bugs": {
+    "url": "https://github.com/skoushlendra/MEAN_MVC/issues"
+  },
+  "keywords": [
+    "node",
+    "skoushlendra",
+    "express",
+    "MEAN",
+    "MVC"
+  ],
+  "author": "skoushlendra <koushlendra@skoushlendra.in> (http://www.skoushlendra.in/)",
+  "license": "MIT"
+}
