@@ -3,21 +3,25 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 var FindJakesSchema = new Schema({
-	id: String,
+	id: Number,
     name: String,
     address: String,
     searchLocation: String,
     latitude: String,
     longitude: String,
-    forMale: String,
-    forFemale: String,
-    forSpeciallyAbled: String,
-    haveBathroom: String,
-    rating1: String,
-    rating2: String,
-    rating3: String,
-    rating4: String,
-    rating5: String
+    forMale: Boolean,
+    forFemale: Boolean,
+    forSpeciallyAbled: Boolean,
+    haveBathroom: Boolean,
+    isVerified: Boolean,
+    createdOn: { type: Date, default: Date.now },
+    updatedOn: { type: Date, default: Date.now },
+    isActive: Boolean,
+    rating1: Number,
+    rating2: Number,
+    rating3: Number,
+    rating4: Number,
+    rating5: Number
 });
 
 mongoose.model('FindJakes', FindJakesSchema);
