@@ -12,8 +12,7 @@ exports.renderOurStory = function(req, res) {
 };
 exports.webservice = function(req, res) {
     res.render('webservice', {
-    	title: 'Findjakes locations data',
-    	user: req.user ? req.user.username : ''
+    	title: 'Findjakes locations data'
     });
 };
 exports.list = function(req, res, next) {
