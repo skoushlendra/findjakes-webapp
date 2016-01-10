@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <title>FindJakes.com - Find Your Nearest Public Toilets in Delhi</title>
+    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="Description" content="Find Your Nearest Public Toilets in India" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    	<meta name="Keywords" content="findjakes, public toilet, public toilets in delhi, public toilets in new delhi, public toilets in pune, public toilets in banglore, public toilets in india, clean india, sulabh toilets" />
+
+        <link rel="icon" href="favicon.png" type="image/png" />
+
+        <!-- Bootstrap Core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="css/grayscale.css" rel="stylesheet">
+        <link href="css/utility.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+        <link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+
+    </head>
+
+    <body>
+		<div ng-app="myApp" ng-controller="findjakes-controller"> 
+			<ul>
+				<li ng-repeat="x in jakes">
+					{{ x.id + ', ' + x.name + ', ' + x.address }}
+				</li>
+			</ul>
+		</div>
+		
+		<script>
+			var app = angular.module('myApp', []);
+			app.controller('findjakes-controller', function($scope, $http) {
+				$http.get("http://www.skoushlendra.in/findjakes").then(function(response) {$scope.jakes = response.data;});
+				//$http.get("http://www.findjakes.skoushlendra.in/list").then(function(response) {$scope.jakes = response.data;});
+			});
+		</script>
+	</body>
+
+</html>

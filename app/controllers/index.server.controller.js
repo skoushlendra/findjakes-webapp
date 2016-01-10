@@ -10,3 +10,19 @@ exports.renderOurStory = function(req, res) {
     	user: req.user ? req.user.username : ''
     });
 };
+exports.webservice = function(req, res) {
+    res.render('webservice', {
+    	title: 'Findjakes locations data',
+    	user: req.user ? req.user.username : ''
+    });
+};
+exports.list = function(req, res, next) {
+	FindJakes.find({}, function(err, findjakes) {
+		if (err) {
+			return next(err);
+		}
+		else {
+			res.json(findjakes);
+		}
+	});
+};
