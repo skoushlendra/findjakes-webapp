@@ -8,6 +8,12 @@ module.exports = function(app) {
     });
     app.get('/', index.renderIndex);
     app.get('/our-story', index.renderOurStory);
-    app.get('/list', index.list);
     app.get('/webservice', index.webservice);
 };
+
+/*
+module.exports = function(app) {
+	var findjakes = require('../../app/controllers/findjakes.server.controller');
+	app.route('/findjakes').get(findjakes.list);
+};
+*/

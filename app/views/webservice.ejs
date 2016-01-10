@@ -41,7 +41,7 @@
 			var app = angular.module('myApp', []);
 			app.controller('findjakes-controller', function($scope, $http) {
 				$http.get("http://www.skoushlendra.in/findjakes").then(function(response) {$scope.jakes = response.data;});
-				//$http.get("http://www.findjakes.skoushlendra.in/list").then(function(response) {$scope.jakes = response.data;});
+				//$http.get("http://www.findjakes-webapp.skoushlendra.in/findjakes").then(function(response) {$scope.jakes = response.data;});
 			});
 		</script>
 	</body>
