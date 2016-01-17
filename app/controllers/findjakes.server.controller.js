@@ -2,7 +2,7 @@ var FindJakes = require('mongoose').model('FindJakes'),
 	passport = require('passport');
 
 exports.list = function(req, res, next) {
-	FindJakes.find({}, {}, {limit: 30}, function(err, findjakes) {
+	FindJakes.find({}, {}, {limit: 100}, function(err, findjakes) {
 		if (err) {
 			return next(err);
 		}
