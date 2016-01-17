@@ -50,7 +50,7 @@
 			var app = angular.module('myApp', ['ngMap']);
 			app.controller('findjakes-controller', function($http, $scope, $interval, NgMap) {
 				var vm = this;
-				$http.get("http://localhost:13003/findjakes").then(function(response) {
+				$http.get("http://www.findjakes-webapp.skoushlendra.in/findjakes").then(function(response) {
 					$scope.jakes = response.data;
 				});
 				vm.positions = $scope.jakes;
