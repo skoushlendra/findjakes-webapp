@@ -10,6 +10,11 @@ exports.renderOurStory = function(req, res) {
     	user: req.user ? req.user.username : ''
     });
 };
+exports.renderMap = function(req, res) {
+    res.render('map', {
+    	title: 'Findjakes locations data'
+    });
+};
 exports.webservice = function(req, res) {
     res.render('webservice', {
     	title: 'Findjakes locations data'

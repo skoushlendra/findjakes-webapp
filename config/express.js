@@ -32,6 +32,7 @@ module.exports = function() {
 	require('../app/routes/jakes.server.route.js')(app);
 
 	app.use(express.static('./public'));
+	app.use(express.static('./bower_components'));
 
 	return app;
 };

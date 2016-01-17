@@ -2,7 +2,20 @@ var FindJakes = require('mongoose').model('FindJakes'),
 	passport = require('passport');
 
 exports.list = function(req, res, next) {
-	FindJakes.find({}, function(err, findjakes) {
+	FindJakes.find({}, {}, {limit: 30}, function(err, findjakes) {
+		if (err) {
+			return next(err);
+		}
+		else {
+			res.json(findjakes);
+		}
+	});
+};
+exports.listWithFilter = function(req, res, next) {
+	var filter = req.params.filter;
+	var query = {};
+	query[filter] = 'true';
+	FindJakes.find(query, function(err, findjakes) {
 		if (err) {
 			return next(err);
 		}

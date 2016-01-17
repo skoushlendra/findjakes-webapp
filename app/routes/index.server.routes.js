@@ -8,6 +8,7 @@ module.exports = function(app) {
     });
     app.get('/', index.renderIndex);
     app.get('/our-story', index.renderOurStory);
+    app.get('/map', index.renderMap);
     app.get('/webservice', index.webservice);
 };
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 
     <head>
 
@@ -24,24 +24,48 @@
         <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
         <link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
-		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+		<script src="//code.angularjs.org/1.3.15/angular.js"></script>
+		<script src="//maps.google.com/maps/api/js?libraries=placeses,visualization,drawing,geometry,places"></script>
+		<script src="ngmap/build/scripts/ng-map.min.js"></script>
+		<script src="ngmap/spec/lib/markerclusterer.js"></script>
+		
+		<link href="ngmap/testapp/custom-marker.css" rel="stylesheet" />
 
     </head>
 
     <body>
-		<div ng-app="myApp" ng-controller="findjakes-controller"> 
-			<ul>
-				<li ng-repeat="x in jakes">
-					{{ x.id + ', ' + x.name + ', ' + x.address }}
-				</li>
-			</ul>
+		<div ng-controller="findjakes-controller as vm"> 
+			<ng-map zoom="8" center="[28.71642, 77.17046]">
+				<custom-marker position="[{{x.latitude}}, {{x.longitude}}]" ng-repeat="x in jakes">
+					<div class="cm">
+						position:<br>
+						{{x.latitude}}<br>
+						{{x.longitude}}
+					</div>
+				</custom-marker>
+			</ng-map>
 		</div>
 		
 		<script>
-			var app = angular.module('myApp', []);
-			app.controller('findjakes-controller', function($scope, $http) {
-				$http.get("http://www.findjakes-webapp.skoushlendra.in/findjakes").then(function(response) {$scope.jakes = response.data;});
-				//$http.get("http://www.findjakes-webapp.skoushlendra.in/findjakes").then(function(response) {$scope.jakes = response.data;});
+			var app = angular.module('myApp', ['ngMap']);
+			app.controller('findjakes-controller', function($http, $scope, $interval, NgMap) {
+				var vm = this;
+				$http.get("http://localhost:13003/findjakes").then(function(response) {
+					$scope.jakes = response.data;
+				});
+				vm.positions = $scope.jakes;
+				vm.dynMarkers = []
+				NgMap.getMap().then(function(map) {
+					var bounds = new google.maps.LatLngBounds();
+					for (var k in map.customMarkers) {
+						var cm = map.customMarkers[k];
+						vm.dynMarkers.push(cm);
+						bounds.extend(cm.getPosition());
+					};
+					vm.markerClusterer = new MarkerClusterer(map, vm.dynMarkers, {});
+					map.setCenter(bounds.getCenter());
+					map.fitBounds(bounds);
+				});
 			});
 		</script>
 	</body>

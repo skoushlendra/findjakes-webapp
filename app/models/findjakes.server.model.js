@@ -4,6 +4,7 @@ var mongoose = require('mongoose'),
 
 var FindJakesSchema = new Schema({
 	id: Number,
+    category: String,
     name: String,
     address: String,
     searchLocation: String,
